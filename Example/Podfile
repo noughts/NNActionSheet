@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'NNActionSheet', :exclusive => true do
+  pod "NNActionSheet", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "NNActionSheet", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
