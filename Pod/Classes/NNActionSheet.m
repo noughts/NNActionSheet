@@ -75,8 +75,9 @@
 /// アニメーションが終わった時
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+	id obj = _didDismissActions[buttonIndex];
 	void (^action)() = _didDismissActions[buttonIndex];
-	if( action ){
+	if( action && [obj isEqual:[NSNull null]]==NO ){
 		action();
 	}
 	if( _didDismissAction ){
