@@ -66,10 +66,11 @@
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-	void (^action)() = _actions[buttonIndex];
-	if( action ){
-		action();
-	}
+    void (^action)() = _actions[buttonIndex];
+    id obj = _actions[buttonIndex];
+    if( action && [obj isEqual:[NSNull null]]==NO ){
+        action();
+    }
 }
 
 /// アニメーションが終わった時
